@@ -30,13 +30,13 @@ public class Constants {
     public static final String LOGGER_ENTERED_BYTE_ARRAY = "\n Введенный массив байт - ";
 
     public static final String LOGGER_FILE_SIZE = "\n Общий размер файла - ";
-    public static final String LOGGER_FILE_SPLITS_COUNT = "\n Колличество промежуточных шагов - ";
+    public static final String LOGGER_FILE_SPLITS_COUNT = "\n Количество промежуточных шагов - ";
 
-    public static final String LOGGER_OUTPUT_IS_TO_BIG = "\n Колличество найденных совпадений слишком большое для вывода в консоль. " +
-            "\n Проверьте файл с результатами в папке рядом с jar-файлом. " +
+    public static final String LOGGER_OUTPUT_IS_TO_BIG = "\n Количество найденных совпадений слишком большое для вывода в консоль. " +
+            "\n Проверьте файл с результатами в папке указанной вами ранее. " +
             "\n Количество найденных елементов = ";
 
-    public static final String LOGGER_FOUNDED_VALUES_COUNT = "\n Колличество найденных совпадений - ";
+    public static final String LOGGER_FOUNDED_VALUES_COUNT = "\n Количество найденных совпадений - ";
 
     public static final String LOGGER_CHECK_IS_OVER = "\n Проверка завершена.";
 
@@ -44,6 +44,9 @@ public class Constants {
 
     public static final String LOGGER_FILE_CHECK_BEGIN = "\n Начинается анализ выбранного файла.";
     public static final String LOGGER_FILE_CHECK_PROCEED = "\n Проводится проверка части файла #";
+
+    public static final String LOGGER_EQUALITY_FOUND_FIRST_INDEX = "\n Совпадение по ключу - Индекс начала: ";
+    public static final String LOGGER_EQUALITY_FOUND_LAST_INDEX = ";  Индекс конца: ";
 
     public static final String CHECK_DATE = "\n Дата проверки: ";
     public static final String CHECKED_FILE = "  Проверенный файл: ";

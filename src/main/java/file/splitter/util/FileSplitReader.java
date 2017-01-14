@@ -61,7 +61,6 @@ public class FileSplitReader {
                             ++positionRegExArray;
                             if (foundedValueList.size() == regExArray.length) {
                                 resultsValues.put(currentPosition - (foundedValueList.size() - 1), currentPosition);
-                                // resultsValues.put(currentPosition, foundedValueList.stream().map(Object::toString).collect(Collectors.joining(" ")));
                                 positionRegExArray = 0;
                                 foundedValueList.clear();
                             }

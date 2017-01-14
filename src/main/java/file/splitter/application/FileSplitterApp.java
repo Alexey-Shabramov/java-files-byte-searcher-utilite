@@ -113,7 +113,7 @@ public class FileSplitterApp extends Application {
                                 if (map.size() <= 200) {
                                     Platform.runLater(() -> loggerTextArea.appendText(Constants.LOGGER_FOUNDED_VALUES_COUNT + map.size()));
                                     for (Map.Entry entry : map.entrySet()) {
-                                        Platform.runLater(() -> loggerTextArea.appendText("\n Совпадение по ключу - Индекс начала: " + entry.getKey() + ";  Индекс конца: " + entry.getValue()));
+                                        Platform.runLater(() -> loggerTextArea.appendText(Constants.LOGGER_EQUALITY_FOUND_FIRST_INDEX + entry.getKey() + Constants.LOGGER_EQUALITY_FOUND_LAST_INDEX + entry.getValue()));
                                     }
                                 } else {
                                     Platform.runLater(() -> loggerTextArea.appendText(Constants.LOGGER_OUTPUT_IS_TO_BIG + map.size()));
