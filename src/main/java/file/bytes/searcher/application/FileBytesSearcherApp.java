@@ -1,10 +1,10 @@
-package file.splitter.application;
+package file.bytes.searcher.application;
 
 
-import file.splitter.dict.Constants;
-import file.splitter.util.AlertGuiUtil;
-import file.splitter.util.FileSplitReader;
-import file.splitter.util.FileUtil;
+import file.bytes.searcher.dict.Constants;
+import file.bytes.searcher.util.AlertGuiUtil;
+import file.bytes.searcher.util.FileSplitReader;
+import file.bytes.searcher.util.FileUtil;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FileSplitterApp extends Application {
+public class FileBytesSearcherApp extends Application {
     public static javafx.scene.control.TextArea loggerTextArea;
     private static File chosenFile;
     private static File selectedResultsDirectory;

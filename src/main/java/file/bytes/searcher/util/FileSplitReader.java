@@ -1,7 +1,7 @@
-package file.splitter.util;
+package file.bytes.searcher.util;
 
-import file.splitter.application.FileSplitterApp;
-import file.splitter.dict.Constants;
+import file.bytes.searcher.application.FileBytesSearcherApp;
+import file.bytes.searcher.dict.Constants;
 import javafx.application.Platform;
 
 import java.io.File;
@@ -40,16 +40,16 @@ public class FileSplitReader {
             splitStepsList.add(file.length() - (SELECTED_MAPPED_PART_SIZE * splitStepsList.size()));
         }
         Platform.runLater(() -> {
-            FileSplitterApp.loggerTextArea.appendText(Constants.LOGGER_ENTERED_BYTE_ARRAY + Arrays.toString(regExArray));
-            FileSplitterApp.loggerTextArea.appendText(Constants.LOGGER_FILE_SIZE + file.length() + Constants.BYTE);
-            FileSplitterApp.loggerTextArea.appendText(Constants.LOGGER_FILE_SPLITS_COUNT + splitStepsList.size());
-            FileSplitterApp.loggerTextArea.appendText(Constants.LOGGER_FILE_CHECK_BEGIN);
+            FileBytesSearcherApp.loggerTextArea.appendText(Constants.LOGGER_ENTERED_BYTE_ARRAY + Arrays.toString(regExArray));
+            FileBytesSearcherApp.loggerTextArea.appendText(Constants.LOGGER_FILE_SIZE + file.length() + Constants.BYTE);
+            FileBytesSearcherApp.loggerTextArea.appendText(Constants.LOGGER_FILE_SPLITS_COUNT + splitStepsList.size());
+            FileBytesSearcherApp.loggerTextArea.appendText(Constants.LOGGER_FILE_CHECK_BEGIN);
         });
         for (Long step : splitStepsList) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
             FileChannel fileChannel = randomAccessFile.getChannel();
 
-            Platform.runLater(() -> FileSplitterApp.loggerTextArea.appendText(Constants.LOGGER_FILE_CHECK_PROCEED + stepsCounter.toString()));
+            Platform.runLater(() -> FileBytesSearcherApp.loggerTextArea.appendText(Constants.LOGGER_FILE_CHECK_PROCEED + stepsCounter.toString()));
 
             MappedByteBuffer buffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, currentPosition, step);
             for (int i = 0; i < buffer.limit(); i++) {

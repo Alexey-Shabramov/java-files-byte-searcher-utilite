@@ -1,6 +1,6 @@
-package file.splitter.util;
+package file.bytes.searcher.util;
 
-import file.splitter.dict.Constants;
+import file.bytes.searcher.dict.Constants;
 import javafx.scene.control.Alert;
 
 import java.util.List;

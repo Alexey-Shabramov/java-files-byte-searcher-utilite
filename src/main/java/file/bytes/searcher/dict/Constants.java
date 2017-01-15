@@ -1,4 +1,4 @@
-package file.splitter.dict;
+package file.bytes.searcher.dict;
 
 
 public class Constants {
