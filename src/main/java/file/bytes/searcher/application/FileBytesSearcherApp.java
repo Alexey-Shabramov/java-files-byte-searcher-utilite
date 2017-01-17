@@ -29,7 +29,7 @@ public class FileBytesSearcherApp extends Application {
     private static File chosenFile;
     private static File selectedResultsDirectory;
     private static List<String> errorList = new ArrayList<>();
-
+    private static Thread thread;
     public static void main(String[] args) {
         launch(args);
     }
@@ -106,9 +106,11 @@ public class FileBytesSearcherApp extends Application {
                 AlertGuiUtil.prepareAlertMessage(errorList);
             } else {
                 try {
-                    new Thread(() -> {
+                    thread = new Thread(() -> {
                         try {
+                            btnBeginConvertation.setDisable(true);
                             Map<Long, Long> map = FileSplitReader.readByteParts(chosenFile, regExTextField.getText());
+
                             if (!map.isEmpty()) {
                                 if (map.size() <= 200) {
                                     Platform.runLater(() -> loggerTextArea.appendText(Constants.LOGGER_FOUNDED_VALUES_COUNT + map.size()));
@@ -124,10 +126,18 @@ public class FileBytesSearcherApp extends Application {
                                 Platform.runLater(() -> loggerTextArea.appendText(Constants.LOGGER_NO_EQUALITY_FOUND));
                             }
                         } catch (IOException e) {
-                            Platform.runLater(() -> loggerTextArea.appendText(Constants.ERROR_HEADER + e));
-                            AlertGuiUtil.createAlert(Constants.ERROR_HEADER + e);
+                            Platform.runLater(() -> {
+                                loggerTextArea.appendText(Constants.ERROR_HEADER + e);
+                                AlertGuiUtil.createAlert(Constants.ERROR_HEADER + e);
+                            });
+
+                        } finally {
+                            FileSplitReader.resultsValues.clear();
+                            btnBeginConvertation.setDisable(false);
                         }
-                    }).start();
+                        thread.interrupt();
+                    });
+                    thread.start();
                 } catch (Exception e) {
                     AlertGuiUtil.createAlert(Constants.ERROR_HEADER + e);
                 }

@@ -2,7 +2,7 @@ package file.bytes.searcher.dict;
 
 
 public class Constants {
-    public static final String APPLICATION_TITLE = "Программа разделения файлов";
+    public static final String APPLICATION_TITLE = "Программа поиска байт в файлах по заданному ключу";
 
     public static final String BYTE = " Байт";
 
